@@ -1,0 +1,17 @@
+#navbar{
+  background-color: red
+}
+#container{
+  background-color: green
+}
+#sidebar{
+  background-color: grey
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
