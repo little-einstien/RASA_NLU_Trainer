@@ -1,33 +1,58 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>NLU Trainer</span>
-      <span class="spacer"></span>
-      <button mat-raised-button color="accent" (click) = "addChild()" >Add Sample</button>
-      <span class="btn-spacer"></span>
-      <button mat-raised-button color="accent">Save</button>
-    </mat-toolbar-row>
-</mat-toolbar>
 
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        What user say
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card>
+      <mat-card-header>
+      <mat-card-title >
+        <mat-form-field class="example-full-width" >
+            <input matInput placeholder="Text" [(ngModel)] = "text">
+        </mat-form-field>
+        <button mat-icon-button color="primary">
+            <mat-icon aria-label="Example icon-button with a heart icon" (click) = "addText()">add</mat-icon>
+          </button>
+      </mat-card-title>
+      </mat-card-header>
 
-<div *ngFor="let sample of samples; let i = index" [attr.data-index]="i">
-  <mat-form-field class="example-full-width" >
-    <mat-grid-list cols="4">
-      <input type="text"  aria-label="Number" matInput  [(ngModel)] = "sample.intent" placeholder="Intent" [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of options" [value]="option">
-          {{ option }}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-grid-list>
-  </mat-form-field>
-  <mat-form-field class="example-full-width" >
-    <mat-grid-list cols="4">
-      <input matInput [(ngModel)] = "sample.text" placeholder="Text">
-      </mat-grid-list>
-  </mat-form-field>
-  <mat-form-field class="example-full-width" >
-    <mat-grid-list cols="4">
-      <input matInput [(ngModel)] = "sample.res" placeholder="Response">
-    </mat-grid-list>
-  </mat-form-field>
-</div>
+      <mat-list  *ngFor="let text of texts">
+        <mat-list-item><mat-icon>label</mat-icon>&nbsp;&nbsp;{{text}}</mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-card>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Responses
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title >
+          <mat-form-field class="example-full-width" >
+              <input matInput placeholder="Text" [(ngModel)] = "response">
+          </mat-form-field>
+          <button mat-icon-button color="primary">
+              <mat-icon aria-label="Example icon-button with a heart icon" (click) = "addResponse()">add</mat-icon>
+            </button>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+        <mat-divider></mat-divider>
+      <mat-list  *ngFor="let response of responses">
+
+        <mat-list-item><mat-icon>label</mat-icon>&nbsp;&nbsp;{{response}}</mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-card-content>
+    </mat-card>
+  </mat-expansion-panel>
+</mat-accordion>

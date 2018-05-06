@@ -9,11 +9,24 @@ export class AppComponent {
   samples : Array<{intent: string, text: string,res: string}> = [];
   myControl: FormControl = new FormControl();
 
+  text : string;
+  response : string;
   options = [
     'greet',
     'buy',
     'anger'
    ];
+   texts = [
+     'greet',
+     'buy',
+     'anger'
+    ];
+    responses = [
+      'greet',
+      'buy',
+      'anger'
+     ];
+
   addChild(){
     this.samples.push({intent: "intent", text: "This is the sample text",res:"Response"});
     console.log(this.samples);
@@ -21,5 +34,20 @@ export class AppComponent {
       this.options.push(this.samples[this.samples.length-1].intent);
     }
     console.log(this.options);
+  }
+
+  addText(){
+    if(this.text){
+      this.texts.push(this.text);
+      this.text = "";
+    }
+  }
+  addResponse(){
+    if(this.response){
+    this.responses.push(this.response);
+    this.response = "";
+  }
+
+
   }
 }

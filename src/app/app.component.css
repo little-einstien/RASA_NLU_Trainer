@@ -6,3 +6,9 @@
 .example-container > * {
   width: 100%;
 }
+::ng-deep .mat-input-wrapper{
+      width:960px !important;
+    }
+::ng-deep .mat-input-element{
+ background-color:black;
+}
