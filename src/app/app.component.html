@@ -1,58 +1,61 @@
+<div class="row">
+  <ul id="slide-out" class=" sidenav sidenav-fixed">
+    <li><a href="#!">First Sidebar Link</a></li>
+    <li><a href="#!">Second Sidebar Link</a></li>
+  </ul>
 
-<mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        What user say
-      </mat-panel-title>
-      <mat-panel-description>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <mat-card>
-      <mat-card-header>
-      <mat-card-title >
-        <mat-form-field class="example-full-width" >
-            <input matInput placeholder="Text" [(ngModel)] = "text">
-        </mat-form-field>
-        <button mat-icon-button color="primary">
-            <mat-icon aria-label="Example icon-button with a heart icon" (click) = "addText()">add</mat-icon>
-          </button>
-      </mat-card-title>
-      </mat-card-header>
+  <div class="col s10 main">
+    <nav>
+      <div class="nav-wrapper white">
+        <div class="right">  <a class="purple waves-effect waves-light">SAVE</a></div>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li id="intent">
+            <div class="input-field " >
+            <input placeholder="Placeholder" [(ngModel)]="intent" id="intent" type="intent" class="validate">
+            <label for="text">Text</label>
+          </div>
+        </li>
+        </ul>
+      </div>
+    </nav>
+    <ul class="collapsible expandable">
+      <li>
+        <div class="collapsible-header"><i class="material-icons">input</i>Text</div>
+        <div class="collapsible-body">
+          <ul class="collection">
+            <li class="collection-item">
+              <div class="input-field" >
+                <input placeholder="Placeholder" [(ngModel)]="text" id="text" type="text" class="validate">
+                <label for="text">Text</label>
+                <a class="btn-floating btn-small waves-effect waves-light red" (click) = "addText()"><i class="material-icons">add</i></a>
+              </div>
 
-      <mat-list  *ngFor="let text of texts">
-        <mat-list-item><mat-icon>label</mat-icon>&nbsp;&nbsp;{{text}}</mat-list-item>
-        <mat-divider></mat-divider>
-      </mat-list>
-    </mat-card>
-  </mat-expansion-panel>
-  <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Responses
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title >
-          <mat-form-field class="example-full-width" >
-              <input matInput placeholder="Text" [(ngModel)] = "response">
-          </mat-form-field>
-          <button mat-icon-button color="primary">
-              <mat-icon aria-label="Example icon-button with a heart icon" (click) = "addResponse()">add</mat-icon>
-            </button>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
+            </li>
+            <li *ngFor="let text of texts" class="collection-item">
+              <blockquote>{{text}}</blockquote>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="material-icons">input</i>Response</div>
+        <div class="collapsible-body">
+          <ul class="collection">
+            <li class="collection-item">
+              <div class="input-field" >
+                <input placeholder="Placeholder" [(ngModel)]="response" id="response" type="text" class="validate">
+                <label for="text">Response</label>
+                <a class="btn-floating btn-small waves-effect waves-light red" (click) = "addResponse()"><i class="material-icons">add</i></a>
+              </div>
 
-        <mat-divider></mat-divider>
-      <mat-list  *ngFor="let response of responses">
+            </li>
+            <li *ngFor="let response of responses" class="collection-item">
+              <blockquote>{{response}}</blockquote>
+            </li>
+          </ul>
 
-        <mat-list-item><mat-icon>label</mat-icon>&nbsp;&nbsp;{{response}}</mat-list-item>
-        <mat-divider></mat-divider>
-      </mat-list>
-    </mat-card-content>
-    </mat-card>
-  </mat-expansion-panel>
-</mat-accordion>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

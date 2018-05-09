@@ -5,12 +5,14 @@ import {FormControl} from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+
+export class AppComponent  {
   samples : Array<{intent: string, text: string,res: string}> = [];
   myControl: FormControl = new FormControl();
 
   text : string;
   response : string;
+  intent:string;
   options = [
     'greet',
     'buy',
