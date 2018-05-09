@@ -7,28 +7,7 @@ import {FormControl} from '@angular/forms';
 })
 
 export class AppComponent  {
-  samples : Array<{intent: string, text: string,res: string}> = [];
-  myControl: FormControl = new FormControl();
-
-  text : string;
-  response : string;
-  intent:string;
-  options = [
-    'greet',
-    'buy',
-    'anger'
-   ];
-   texts = [
-     'greet',
-     'buy',
-     'anger'
-    ];
-    responses = [
-      'greet',
-      'buy',
-      'anger'
-     ];
-
+  
   addChild(){
     this.samples.push({intent: "intent", text: "This is the sample text",res:"Response"});
     console.log(this.samples);

@@ -1,18 +1,13 @@
-<div class="row">
-  <ul id="slide-out" class=" sidenav sidenav-fixed">
-    <li><a href="#!">First Sidebar Link</a></li>
-    <li><a href="#!">Second Sidebar Link</a></li>
-  </ul>
 
   <div class="col s10 main">
     <nav>
       <div class="nav-wrapper white">
-        <div class="right">  <a class="purple waves-effect waves-light">SAVE</a></div>
+        <a class="purple waves-effect waves-light">SAVE</a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
           <li id="intent">
             <div class="input-field " >
-            <input placeholder="Placeholder" [(ngModel)]="intent" id="intent" type="intent" class="validate">
-            <label for="text">Text</label>
+            <input placeholder="Placeholder" [(ngModel)]="intent" id="intent" type="text" class="validate">
+            <label for="intent">Text</label>
           </div>
         </li>
         </ul>
@@ -58,4 +53,3 @@
       </li>
     </ul>
   </div>
-</div>
